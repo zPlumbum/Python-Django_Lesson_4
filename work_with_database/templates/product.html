@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Телефон{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Телефон</h1>
+        </div>
+        <div class="content">
+            {% if phone %}
+                <ul>
+                    <li>
+                        <strong>Название модели:</strong> {{ phone.name }}
+                    </li>
+                    <li>
+                        <strong>Цена:</strong> {{ phone.price }}р.
+                    </li>
+                    <li>
+                        <strong>Дата выхода:</strong> {{ phone.release_date }}
+                    </li>
+                    <li>
+                        <strong>Наличие LTE:</strong>
+                        {% if phone.lte_exists %}
+                            есть
+                        {% else %}
+                            нет
+                        {% endif %}
+                    </li>
+                    <div>
+                        <img src="{{ phone.image }}" vspace="10">
+                    </div>
+                </ul>
+            {% else %}
+                <h3><center>К сожалению, такой модели нет на нашем сайте...</center></h3>
+            {% endif %}
+        </div>
+        <div class="back_to_catalog">
+            <a href="{% url 'show_catalog' %}">Обратно к каталогу</a>
+        </div>
+    </div>
+{% endblock %}

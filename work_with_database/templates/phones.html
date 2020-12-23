@@ -1,0 +1,12 @@
+{% load static %}
+
+
+{% for phone in phones %}
+    <div style="margin-top:40px;">
+        <h3><a href="{{ phone.slug }}/">{{ phone.name }}</a></h3>
+        <div>
+            <strong>Стоимость: {{ phone.price }}р.</strong>
+        </div>
+        <img src="{{ phone.image }}" vspace="10">
+    </div>
+{% endfor %}
